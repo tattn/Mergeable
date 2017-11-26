@@ -26,7 +26,7 @@ struct Model: Decodable, Mergeable {
 
 let response = APIResponse(id: 0, title: "にゃーん", foo: "bar")
 let response2 = APIResponse2(tags: ["swift", "ios", "macos"])
-let model = try Model.mergeFrom(response, response2)
+let model = try Model.merge(response, response2)
 
 XCTAssertEqual(model.id, response.id)
 XCTAssertEqual(model.title, response.title)
