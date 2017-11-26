@@ -31,6 +31,8 @@
 		240F70591FCB281100AD880E /* MergeableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeableTests.swift; sourceTree = "<group>"; };
 		240F705B1FCB281100AD880E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		240F70661FCB292600AD880E /* Mergeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mergeable.swift; sourceTree = "<group>"; };
+		240F70691FCB2E6F00AD880E /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		240F706A1FCB2E9800AD880E /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		240F70411FCB281100AD880E = {
 			isa = PBXGroup;
 			children = (
+				240F70681FCB2E3600AD880E /* Configurations */,
 				240F704D1FCB281100AD880E /* Sources */,
 				240F70581FCB281100AD880E /* Tests */,
 				240F704C1FCB281100AD880E /* Products */,
@@ -87,6 +90,15 @@
 				240F705B1FCB281100AD880E /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		240F70681FCB2E3600AD880E /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				240F70691FCB2E6F00AD880E /* Base.xcconfig */,
+				240F706A1FCB2E9800AD880E /* Framework.xcconfig */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +237,7 @@
 /* Begin XCBuildConfiguration section */
 		240F705D1FCB281100AD880E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240F706A1FCB2E9800AD880E /* Framework.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -285,6 +298,7 @@
 		};
 		240F705E1FCB281100AD880E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240F706A1FCB2E9800AD880E /* Framework.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -338,6 +352,7 @@
 		};
 		240F70601FCB281100AD880E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240F706A1FCB2E9800AD880E /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -360,6 +375,7 @@
 		};
 		240F70611FCB281100AD880E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240F706A1FCB2E9800AD880E /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -381,6 +397,7 @@
 		};
 		240F70631FCB281100AD880E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240F706A1FCB2E9800AD880E /* Framework.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -395,6 +412,7 @@
 		};
 		240F70641FCB281100AD880E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 240F706A1FCB2E9800AD880E /* Framework.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
