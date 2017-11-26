@@ -12,19 +12,19 @@ private let encoder = JSONEncoder()
 private let decoder = JSONDecoder()
 
 public protocol Mergeable: Decodable {
-    static func mergeFrom<T: Encodable, U: Encodable>(_ value1: T, _ value2: U) throws -> Self
-    static func mergeFrom<T: Encodable, U: Encodable, V: Encodable>(_ value1: T, _ value2: U, _ value3: V) throws -> Self
+    static func merge<T: Encodable, U: Encodable>(_ value1: T, _ value2: U) throws -> Self
+    static func merge<T: Encodable, U: Encodable, V: Encodable>(_ value1: T, _ value2: U, _ value3: V) throws -> Self
 }
 
 public extension Mergeable {
-    static func mergeFrom<T: Encodable, U: Encodable>(_ value1: T, _ value2: U) throws -> Self {
-        return try merge(from: try [encoder.encode(value1), encoder.encode(value2)])
+    static func merge<T: Encodable, U: Encodable>(_ value1: T, _ value2: U) throws -> Self {
+        return try merge(try [encoder.encode(value1), encoder.encode(value2)])
     }
-    static func mergeFrom<T: Encodable, U: Encodable, V: Encodable>(_ value1: T, _ value2: U, _ value3: V) throws -> Self {
-        return try merge(from: try [encoder.encode(value1), encoder.encode(value2), encoder.encode(value3)])
+    static func merge<T: Encodable, U: Encodable, V: Encodable>(_ value1: T, _ value2: U, _ value3: V) throws -> Self {
+        return try merge(try [encoder.encode(value1), encoder.encode(value2), encoder.encode(value3)])
     }
 
-    private static func merge(from dataList: [Data]) throws -> Self {
+    private static func merge(_ dataList: [Data]) throws -> Self {
         let jsonArray = try dataList.flatMap { try JSONSerialization.jsonObject(with: $0, options: .allowFragments) as? [String: Any] }
         let mergedJson = jsonArray.reduce(into: [:]) { (result, value) in
             result.merge(value) { (old, _) in old }
